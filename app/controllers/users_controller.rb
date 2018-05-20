@@ -8,11 +8,13 @@ class UsersController < ApplicationController
   end
 
   def new
+    @team = Team.find(params[:team_id])
     @user = User.new
   end
 
   def create
-    @user = User.new(user_params)
+    team = Team.find(params[:team_id])
+    @user = team.users.build(user_params)
 
     if @user.save
       flash[:success] = 'ユーザーを登録しました'
