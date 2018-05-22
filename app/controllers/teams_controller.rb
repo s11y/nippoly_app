@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
   def index
     team = Team.find_by(name: params[:team_name])
     if team
-      redirect_to new_team_user_path(team.id)
+      redirect_to team_login_path(team.id)
     end
   end
 
