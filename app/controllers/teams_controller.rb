@@ -1,8 +1,8 @@
 class TeamsController < ApplicationController
   def index
-    if params[:team_name]
-    else
-      @team = Team.new
+    team = Team.find_by(name: params[:team_name])
+    if team
+      redirect_to new_team_user_path(team.id)
     end
   end
 
