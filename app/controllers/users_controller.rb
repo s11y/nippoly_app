@@ -33,10 +33,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
-
-  def required_user_logged_in
-    unless logged_in?
-      redirect_to teams_path
-    end
-  end
 end
