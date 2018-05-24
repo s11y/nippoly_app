@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :teams, only: [:index, :show, :new, :create] do
     resources :users, except: [:index, :show]
+    resources :articles
 
     get 'login', to: 'sessions#new'
     post 'login', to: 'sessions#create'
