@@ -27,6 +27,11 @@ class TeamsController < ApplicationController
     end
   end
 
+  # TODO: AdminはTeamを削除できる
+  def destroy
+
+  end
+
   private
 
   def team_params
