@@ -26,6 +26,7 @@ class SessionsController < ApplicationController
 
   def login(name, password)
     @user = User.find_by(name: name)
+    # TODO: @userがteamに所属しているか確認
     if @user && @user.authenticate(password)
       session[:user_id] = @user.id
       return true
