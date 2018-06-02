@@ -7,16 +7,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(name: params[:id])
   end
 
   def new
-    @team = Team.find(params[:team_id])
+    @team = Team.find_by(name: params[:team_id])
     @user = User.new
   end
 
   def create
-    team = Team.find(params[:team_id])
+    team = Team.find_by(name: params[:team_id])
     @user = team.users.build(user_params)
 
     if @user.save
