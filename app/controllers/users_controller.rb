@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :required_user_logged_in, only: [:index, :show]
+  # TODO: 同じチームのユーザーのみ閲覧可
 
   def index
     @users = User.all.page(params[:page])
