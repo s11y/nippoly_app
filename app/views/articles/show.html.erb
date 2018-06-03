@@ -1,0 +1,6 @@
+<p class="col-md-6 col-md-offset-3">
+  <%= @article.title %>
+</p>
+<div class="col-md-6 col-md-offset-3">
+  <%= markdown(@article.body).html_safe %>
+</div>
