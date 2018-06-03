@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :teams, only: [:index, :show, :new, :create] do
-    resources :users, only: [:create]
+    resources :users, only: [:new ,:create]
 
     get 'login', to: 'sessions#new'
     post 'login', to: 'sessions#create'
