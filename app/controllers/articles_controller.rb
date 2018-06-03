@@ -1,14 +1,30 @@
 class ArticlesController < ApplicationController
+
+  before_action :required_user_logged_in
+  # TODO: 同じチームのユーザーのみ閲覧可
+  before_action :required_current_user_post, only: [:destroy, :new, :create]
+
   def index
     
   end
 
   def new
-    @articles = Article.new
+    @article = Article.new
   end
 
   def create
+    @article = current_user.articles.build(article_params)
 
+    if @article.save
+      redirect_to user_article_path(current_user, @article)
+    else
+      redirect_to :new
+    end
+
+  end
+
+  def show
+    @article = current_user.articles.find_by(params[:article_id])
   end
 
   def update
@@ -23,5 +39,12 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :body)
+  end
+
+  def required_current_user_post
+    user = User.find_by(name: params[:user_id])
+    unless user == current_user
+      redirect_to root_url
+    end
   end
 end
