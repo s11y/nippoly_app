@@ -9,12 +9,18 @@
       <li class="nav-item active">
         <%= link_to 'Home', root_path, class: 'navbar-link' %>
       </li>
-      <li class="nav-item">
-        <%= link_to 'Create a new team', new_team_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Log in', teams_path, class: 'nav-link' %>>
-      </li>
+      <% if logged_in? %>
+        <li class="nav-item">
+          <%= link_to 'Create a new article', new_user_article_path(current_user), class: 'nav-link' %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Create a new team', new_team_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Log in', teams_path, class: 'nav-link' %>>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>
