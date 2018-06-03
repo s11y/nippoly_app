@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    @team = Team.find_by(name: params[:team_id])
+    @team = Team.find_by(params[:team_id])
   end
 
   def create
