@@ -1,2 +1,6 @@
 <h1>Welcome to Nippoly</h1>
-<%= link_to 'Sign up now!', new_team_path, class: 'btn btn-lg btn-primary' %>
+<% if logged_in? %>
+  <%= render 'articles/articles', articles: @articles %>
+<% else %>
+  <%= link_to 'Sign up now!', new_team_path, class: 'btn btn-lg btn-primary' %>
+<% end %>
