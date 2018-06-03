@@ -1,0 +1,10 @@
+<% if articles.any? %>
+  <% articles.each do |article| %>
+    <li>
+      <div>
+        <p><%= article.user %></p>
+      </div>
+      <p><%= article.title %></p>
+    </li>
+  <% end %>
+<% end %>
