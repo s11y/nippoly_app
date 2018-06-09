@@ -5,7 +5,8 @@ class ArticlesController < ApplicationController
   before_action :required_current_user_post, only: [:destroy, :new, :create]
 
   def index
-    
+    user = User.find_by(name: params[:user_id])
+    @articles = user.articles
   end
 
   def new
@@ -24,7 +25,10 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = current_user.articles.find_by(params[:article_id])
+    user = User.find_by(name: params[:user_id])
+    @article = user.articles.find_by(params[:article_id])
+
+    @comment = Comment.new
   end
 
   def update
