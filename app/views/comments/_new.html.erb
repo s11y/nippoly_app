@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with model: comment, url: user_article_comments_path(article_id: params[:id]) do |f| %>
+      <div class="form-group">
+        <%= f.text_area :body, class: 'form-control' %>
+      </div>
+
+      <%= f.submit 'Comment', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div>
