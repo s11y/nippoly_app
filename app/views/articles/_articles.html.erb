@@ -4,7 +4,7 @@
       <div>
         <p><%= article.user %></p>
       </div>
-      <p><%= article.title %></p>
+      <p><%= link_to article.title, user_article_path(article.user, article) %></p>
     </li>
   <% end %>
 <% end %>
