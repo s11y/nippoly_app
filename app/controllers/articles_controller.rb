@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
     user = User.find_by(name: params[:user_id])
     @article = user.articles.find_by(params[:article_id])
 
-    @comment = Comment.new
+    @comments = @article.comments
   end
 
   def update
