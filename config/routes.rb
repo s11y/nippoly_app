@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
 
   resources :users, only: [:index, :show, :new] do
-    resources :articles, only: [:new, :create, :index, :show, :destroy] do
+    resources :articles, only: [:index, :new, :create, :show, :update, :edit, :destroy] do
       resources :comments
     end
   end

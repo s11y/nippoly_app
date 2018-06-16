@@ -1,4 +1,7 @@
 module ArticlesHelper
+
+  include SessionsHelper
+
   require "redcarpet"
   require "coderay"
 
@@ -40,5 +43,9 @@ module ArticlesHelper
     }
     markdown = Redcarpet::Markdown.new(html_render, options)
     markdown.render(text)
+  end
+
+  def article_author?(article)
+    article.user == current_user
   end
 end

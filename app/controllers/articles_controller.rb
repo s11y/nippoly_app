@@ -31,8 +31,18 @@ class ArticlesController < ApplicationController
     @comments = @article.comments
   end
 
-  def update
+  def edit
+    @article = Article.find_by(params[:article_id])
+  end
 
+  def update
+    @article = Article.find_by(params[:article_id])
+
+    if @article.update(article_params)
+      redirect_to user_article_path(current_user, @article)
+    else
+      render :edit
+    end
   end
 
   def destroy
