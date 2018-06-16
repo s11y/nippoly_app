@@ -1,0 +1,13 @@
+- unless articles.empty?
+  - articles.each do |article|
+    li
+      div
+        p
+          = link_to article.user.name, user_path(article.user)
+          br
+          span
+            | 作成時日時
+          | : 
+          = l article.created_at, format: :short
+      p
+        = link_to article.title, user_article_path(article.user, article)

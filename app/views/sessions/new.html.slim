@@ -1,0 +1,14 @@
+.text-center
+  h2
+    | Log in
+.row
+  .col-md-6.col-md-offset-3
+    = form_with scope: :session, url: team_login_path(@team) do |f|
+      .form-group
+        = f.label :name, 'Name'
+        = f.text_field :name, class: 'form-control'
+      .form-group
+        = f.label :password, 'Password'
+        = f.password_field :password, class: 'form-control'
+      = f.submit 'Log in', class: 'btn btn-primary btn-block'
+    = link_to 'Sign up', new_team_user_path, class: 'btn btn-secondary btn-block'

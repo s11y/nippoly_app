@@ -1,0 +1,12 @@
+.row
+  aside.col-xs-4
+    .panel.panel-default
+      .panel-heading
+        h3.panel-title
+          = @user.name
+      div
+        |  <img class="media-object img-rounded" src="
+        = gravatar_url(@user, { size: 50 })
+        | " alt="User Profile Image"> 
+  .col-xs-8
+    = render 'articles/articles', articles: @articles
