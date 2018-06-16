@@ -1,0 +1,17 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.p-3.align-middle
+  button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation"]
+    span.navbar-toggler-icon
+  = link_to 'Nippoly', root_path, class: 'navbar-brand'
+  #navbarToggler.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+      li.nav-item.active
+        = link_to 'Home', root_path, class: 'navbar-link'
+      - if logged_in?
+        li.nav-item
+          = link_to 'Create a new article', new_user_article_path(current_user), class: 'nav-link'
+      - else
+        li.nav-item
+          = link_to 'Create a new team', new_team_path, class: 'nav-link'
+        li.nav-item
+          = link_to 'Log in', teams_path, class: 'nav-link'
+          | > 
