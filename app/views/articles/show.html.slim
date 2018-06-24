@@ -6,4 +6,8 @@ div
   = render 'comments/comments', comments: @comments
 aside.sidebar
   - if article_author?(@article)
-    = link_to 'Edit', edit_user_article_path(current_user, @article)
+    ul
+      li
+        = link_to 'Edit', edit_user_article_path(current_user, @article)
+      li
+        = link_to 'Delete', url: user_article_path(current_user, @article), method: :delete, data: { confirm: 'Are you sure?' }
