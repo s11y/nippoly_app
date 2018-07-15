@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to user_article_path(current_user, @article)
     else
+      # TODO: render :new
       redirect_to :new
     end
 
@@ -46,7 +47,10 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
+    article = Article.find(params[:id])
+    article.destroy
 
+    redirect_to action: :index
   end
 
   private
