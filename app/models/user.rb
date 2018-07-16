@@ -1,8 +1,8 @@
 class User < ApplicationRecord
 
   belongs_to :team
-  has_many :articles
-  has_many :comments
+  has_many :articles, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 50 },
             uniqueness: true
